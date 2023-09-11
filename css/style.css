@@ -1,0 +1,260 @@
+*{margin:0; padding: 0; font-family: 'Noto Sans KR', sans-serif;}
+a{text-decoration: none;}
+li{list-style: none;}
+body{background: #f1f6f9;}
+.none{display: none;}
+.block{display: block;}
+.half{width: 50%; float: left;}
+.essen{border:1px solid #28CDC7 !important; color: #28CDC7 !important; box-sizing: border-box !important;}
+.main{width:100%;}
+.aside{position:fixed; width:15%; min-width: 200px; height: 100vh; background: #fff; float: left;}
+.aside_wrap{width:90%; margin:0 auto;}
+.aside .logo{width:100%; overflow: hidden; padding-top:30px; margin-bottom: 50px;}
+.aside .logo img{display: block; width: 115px; margin: 0 auto;}
+.aside .menu{width: 100%; overflow: hidden;}
+.aside .menu ul li{width:100%; height: 50px; line-height: 50px; background: #fff; border:1px solid #28CDC7; box-sizing: border-box; margin-bottom: 10px; border-radius: 10px;}
+.aside .menu ul li a{color: #28CDC7; display: block; font-weight: 700;}
+.aside .menu ul li:hover{width:100%; height: 50px; line-height: 50px; background: #28CDC7; border:1px solid #28CDC7; box-sizing: border-box; border-radius: 10px; margin-bottom: 10px; color: #fff; transition:0.6s;}
+.aside .menu ul li:hover a{color: #fff;}
+.aside .menu ul li.on{width:100%; height: 50px; line-height: 50px; background: #28CDC7; border:1px solid #28CDC7; box-sizing: border-box; border-radius: 10px; margin-bottom: 10px; color: #fff;}
+.aside .menu ul li.on a{color: #fff;}
+.aside .menu ul li i{margin:0px 10px 0px 20px;}
+.content{width:85%; float: left; margin-left: 15%;}
+.con_wrap {width:98%; min-width: 1200px; overflow: hidden; margin-left:1%; margin-right: 1%; margin-bottom: 10px; margin-top:10px;}
+.filter_box{float: left; margin-top:10px; margin-left:10px;}
+.filter_box2{width:100%; background: #fff; padding-top:10px; padding-bottom: 10px;}
+.date_select{float: left;}
+.date_select input[type=text]{float: left; width:140px; height: 40px; line-height: 40px; border: 1px solid #e0e0e0; border-radius: 7px; color: aaa; padding-left:40px; background: url(../img/contents/date_bg.png) #fff; background-repeat: no-repeat; font-size: 16px;}
+.date_select div{float: left; margin-left:10px; margin-right: 10px; line-height: 40px;}
+
+.sex_select{float: left; margin-left:10px;}
+.sex_select select{width:70px; height: 40px; border:1px solid #E0E0E0; box-sizing: border-box; border-radius: 7px; color: #4C4C4E;}
+.sex_select select option{background: #fff;}
+.emotion_select{float: left; margin-left: 10px;}
+.emotion_select select{width:70px; height: 40px; border:1px solid #E0E0E0; box-sizing: border-box; border-radius: 7px; color: #4C4C4E;}
+
+.type_select{float: left; position: relative; margin-left: 10px; margin-right: 10px;}
+.type_tit{float: left; width: 140px; height: 40px; line-height: 40px; border: 1px solid #e0e0e0; border-radius: 7px; color:#4C4C4E; padding-left:40px; background: url(../img/contents/filter_bg.png) #fff; background-repeat: no-repeat; font-size: 16px;}
+.type_check{position: absolute; top:50px; display: none; z-index: 100;}
+.step1{width: 180px; line-height: 40px; border: 1px solid #28CDC7; border-radius: 7px; box-sizing: border-box; overflow: hidden; color:#4C4C4E; background: #fff;}
+.step2{width: 180px; line-height: 40px; border: 1px solid #28CDC7; border-radius: 7px; box-sizing: border-box; overflow: hidden; color:#4C4C4E; background: #fff; position:absolute; left:190px; top:0;}
+.cb1{
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    transition: border-color ease 0.2s;
+    cursor: pointer;
+}
+.cb1 span{margin-left:40px;}
+.cb1::before, .cb1::after {
+    position: absolute;
+    margin-top:15px;
+    margin-left:10px;
+    height: 0;
+    width: 4px;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: inline-block;
+    transform-origin: left top;
+    border-radius: 5px;
+    content: ' ';
+    transition: opacity ease 0.5;
+}
+.cb1::before{
+    top: 14.4px;
+    left: 8.2px;
+    box-shadow: 0 0 0 1px transparent;
+    transform: rotate(-135deg);
+}
+.cb1::after{
+    top: 7.4px;
+    left: 1px;
+    transform: rotate(-45deg);
+}
+input[id*=type]:checked + .cb1 {
+    background: #28CDC7;
+    color: #fff;
+}
+
+input[id*=type]:checked + .cb1::after{
+    height: 10px;
+    animation: bottomcheck 0.2s ease 0s forwards;
+}
+input[id*=type]:checked + .cb1::before{
+    height: 24px;
+    animation: topcheck 0.4s ease 0s forwards;
+}
+input[type=checkbox] {
+    display: none;
+}
+@keyframes bottomcheck {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 10px;
+    }
+}
+@keyframes topcheck {
+    0% {
+        height: 0;
+    }
+    50% {
+        height: 0;
+    }
+    100% {
+        height: 24px;
+    }
+}
+
+.line{float: left; margin-left:30px; margin-right: 30px; margin-top:5px; height: 30px; width: 1px; background: #ccc;}
+.search_btn{width:110px; height: 42px; border:2px solid #4C4C4E; border-radius: 7px; background: #fff; color: #4C4C4E; text-align: center; font-size: 16px; box-sizing: border-box; margin-right: 10px;}
+.export_btn{width:110px; height: 42px; border:2px solid #6941FF; border-radius: 7px; background: #fff; color: #6941FF; text-align: center; font-size: 16px; box-sizing: border-box;}
+.account_box{float: right; margin-top:10px; }
+.user_box{float: left; margin-right: 5px;}
+.user_name{font-size: 18px; color: #4C4C4E;}
+.access_time{font-size: 12px; color: #4C4C4E;}
+.setting_box{float: left; margin-right: 10px;}
+.setting_box .setting_btn{width:40px; height: 40px; line-height: 40px; font-size: 20px; color: #4C4C4E; text-align: center; border:0; background: #f1f6f9;}
+.logout_box{float: left; margin-right: 5px;}
+.logout_box .logout_btn{width:40px; height: 40px; line-height: 40px; font-size: 20px; color: #4C4C4E; background: #fff; border-radius: 7px; text-align: center; border:0;}
+
+.con_box{width:100%; float: left;}
+.con_box_half{width:50%; float: left;}
+.box_1{width:96%; float: left; margin: 10px 2% 10px 2%; overflow: hidden; background: #fff; border-radius: 10px; height: 310px;}
+.box_2{width:46%; float: left;  margin: 10px 2% 10px 2%;  overflow: hidden; background: #fff; border-radius: 10px;}
+.box_3{width:31.33%; float: left;  margin: 10px 1% 10px 1%; overflow: hidden; background: #fff; border-radius: 10px; height: 260px;}
+.box_tit{width: 100%; overflow: hidden; margin-bottom: 10px;}
+.box_tit h4{color: #4C4C4E;}
+.box_wrap{padding:20px;}
+.box_wrap img{display: block; width: 100%; margin:0 auto; margin-bottom:10px;}
+
+
+/********************************************** 분석결과 ************************************************************/
+.emoji_box{width: 100%; overflow: hidden;}
+.emoji_wrap{margin-top:40px;}
+.happy_emoji{width: 46%; float: left; margin-left:2%; margin-right: 2%; padding:10px; border:5px solid #28CDC7; box-sizing: border-box; border-radius: 10px;}
+.angry_emoji{width: 46%; float: left; margin-left:2%; margin-right: 2%; padding: 10px; border:5px solid #28CDC7; box-sizing: border-box; border-radius: 10px;}
+.emoji_img{width:100%; overflow: hidden;}
+.emoji_img img{width: 110px; margin-bottom: 10px;}
+.emoji_date{text-align: center; font-size: 22px;}
+.emoji_wrap p{text-align: center; font-size: 14px;}
+
+/********************************************** jqgrid custom ************************************************************/
+.ui-jqgrid{border: 0 !important;}
+.ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr{border-right:0 !important; color: #4C4C4E;}
+.ui-state-default, .ui-widget-content .ui-widget-header{background: #4C4C4E !important; color: #fff !important; height: 40px !important; border-top:1px solid #4C4C4E !important; border-bottom:1px solid #E0E0E0 !important;}
+.ui-jqgrid tr.jqgrow{height: 34px; }
+.ui-widget-content{border: transparent !important;}
+.ui-jqgrid .ui-jqgrid-hdiv{overflow-x:visible !important;}
+.ui-jqgrid .ui-jqgrid-view{font-size: 14px !important;}
+.ui-jqgrid .ui-jqgrid-pager{background: #fff !important; color: #4C4C4E !important;}
+.ui-icon{width: 16px; height: 16px; background-image: url(../img/contents/ui-icons.png) !important;}
+.ui-jqgrid tr.jqgrow:hover{background: #eee !important; color: #4C4C4E !important;}
+#pg_pager .ui-state-hover{border-color: transparent !important; background: transparent !important; color: transparent !important;}
+.ui-jqgrid input[type=checkbox]{display: block; margin:0 auto;}
+
+#gbox_list10 .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr{border-right:0 !important; color: #4C4C4E;}
+#gbox_list10 .ui-state-default, .ui-widget-content .ui-widget-header{background: #fff !important; color: #4C4C4E !important; height: 40px !important; border-top:1px solid #4C4C4E !important; border-bottom:1px solid #E0E0E0 !important;}
+#gbox_list11 .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr,
+#gbox_list12 .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr,
+#gbox_list13 .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr{border-right:0 !important; color: #4C4C4E;}
+#gbox_list11 .ui-state-default, .ui-widget-content .ui-widget-header,
+#gbox_list12 .ui-state-default, .ui-widget-content .ui-widget-header,
+#gbox_list13 .ui-state-default, .ui-widget-content .ui-widget-header{background: #fff !important; color: #4C4C4E !important; height: 40px !important; border-top:0 !important; border-bottom:0 !important; font-weight: 800;}
+/********************************************** Datepicker *******************************************************/
+.ui-datepicker table tbody tr td{background: #fff !important;}
+.ui-datepicker{box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.08);}
+.ui-datepicker-calendar .ui-state-default{background-color: #fff !important; color: #28CDC7 !important; border:0 !important; text-align: center !important;}
+.ui-datepicker-calendar .ui-state-default:hover{background: #28CDC7 !important; color: #fff !important;}
+.ui-datepicker .ui-datepicker-prev-hover,.ui-datepicker .ui-datepicker-next-hover{background: transparent !important; border-color: transparent !important;}
+.ui-datepicker .ui-datepicker-header{background: #fff !important; color: #28CDC7 !important; border: 0 !important;}
+
+/********************************************** popup ************************************************************/
+.popup_bg{width: 100%; height: 100vh; position: fixed; background: rgba(0,0,0,.6); z-index: 600;}
+.stt_popup{width:1000px; position: absolute; left:50%; top:50%; transform: translate(-50%,-50%); z-index: 500; background: #fff; border:1px solid #4C4C4E; border-radius: 10px; overflow: hidden;}
+.popup{width:400px; position: absolute; left:50%; top:50%; transform: translate(-50%,-50%); z-index: 500; background: #fff; border:1px solid #4C4C4E; border-radius: 10px; overflow: hidden;}
+.popup_box{width: 100%; overflow: hidden;}
+.popup_tit{overflow: hidden; background: #4C4C4E; color: #fff; padding:10px;}
+.close_btn{float: right; }
+.popup_con{width: 100%; overflow: hidden; margin-top:30px; margin-bottom: 30px;}
+.popup_con>div{width: 100%; overflow: hidden; margin-top:15px; margin-bottom: 15px;}
+.detail_tit{width:30%; float: left; text-align: center;}
+.radio_wrap{width: 66%; margin-left:2%; margin-right: 2%; float: left; border-radius: 7px; border: 1px solid #4C4C4E; box-sizing: border-box; overflow: hidden;}
+.text_wrap{width: 66%; margin-left:2%; margin-right: 2%; float: left; overflow: hidden;}
+.text_wrap input[type=text]{width:80%; float:left; margin-left:1%; margin-right: 1%; height: 24px; box-sizing: border-box; border:1px solid #aaa; color: #aaa; border-radius: 5px; text-align: center;}
+.text_wrap select{width:80%; float:left; margin-left:1%; margin-right: 1%; height: 24px; box-sizing: border-box; border:1px solid #aaa; color: #aaa; border-radius: 5px; text-align: center;}
+.detail_con input[type=radio]{display: none;}
+/*.detail_con label{display: block; float: left; height: 40px; line-height: 40px; background: #f6f6f6; color: #4C4C4E; text-align: center;  box-sizing: border-box; }*/
+.detail_con input[type=radio]:checked+label {background: #28CDC7;color: #fff;border-color: #28CDC7;}
+.detail_emotion .detail_con label{display: block; width:33.33%; float: left; height: 40px; line-height: 40px; background: #f6f6f6; color: #4C4C4E; text-align: center;  box-sizing: border-box; }
+.detail_sex .detail_con label{display: block; width:50%; float: left; height: 40px; line-height: 40px; background: #f6f6f6; color: #4C4C4E; text-align: center;  box-sizing: border-box; }
+.detail_age .detail_con label{display: block; width:20%; float: left; height: 40px; line-height: 40px; background: #f6f6f6; color: #4C4C4E; text-align: center;  box-sizing: border-box; }
+.detail_type .text_wrap input[type=text]{width:48%; float:left; margin-left:1%; margin-right: 1%; height: 40px; box-sizing: border-box; border:1px solid #aaa; color: #aaa; border-radius: 5px; text-align: center;}
+.detail_voice .text_wrap input[type=text], .detail_time .text_wrap input[type=text], .detail_date .text_wrap input[type=text]{width:98%; float:left; margin-left:1%; margin-right: 1%; height: 40px; box-sizing: border-box; border:1px solid #aaa; color: #aaa; border-radius: 5px; text-align: center;}
+.stt_chat{width: 90%; margin:0 auto;}
+.user_name{font-size: 16px;}
+.send{width: 100%; overflow: hidden; margin-top:15px; margin-bottom: 15px;}
+.send .bubble{width:200px; padding:10px; border-radius: 20px 20px 20px 0px; background: #87e3e0; color:#4C4C4E; float: left; font-size: 14px;}
+.send .send_time{font-size: 10px; margin-top:30px; margin-left:10px; float: left;}
+.receive{width: 100%; overflow: hidden; margin-top:10px; margin-bottom: 10px;}
+.receive .bubble{width:200px; padding:10px; border-radius: 20px 20px 0px 20px; background: #d1f3f4; color:#4C4C4E; float: right; font-size: 14px;}
+.receive .send_time{font-size: 10px; margin-top:30px; margin-right:10px; float: right;}
+.sett_wrap{width:100%; overflow: hidden; margin-top:20px; margin-bottom: 20px;}
+.pop_btn_wrap{width:150px; margin:0 auto;}
+.ok_btn{width:60px; height: 30px; line-height: 30px; background: #28CDC7; border:1px solid #28CDC7; color: #fff; box-sizing: border-box; border-radius: 5px; float: left; margin-right: 20px;}
+.cancel_btn{width:60px; height: 30px; line-height: 30px; background: #4C4C4E; border:1px solid #4C4C4E; color: #fff; box-sizing: border-box; border-radius: 5px; float: left;}
+.popup_message{text-align: center;}
+
+
+.tab_box{width:100%; overflow: hidden;}
+.tab_btn1,.tab_btn2{width:180px; height: 30px; line-height: 30px; background: #fff; color: #4C4C4E; text-align: center; border:1px solid #4C4C4E; box-sizing: border-box; border-radius: 5px 5px 0px 0px; float: left; margin-right: 5px;}
+.on{background: #4C4C4E; color: #fff;}
+.tab_tit{width:100%; overflow: hidden; height: 50px; line-height: 50px; background: #4C4C4E; border-radius: 0px 10px 10px 10px; color: #fff;}
+.tab_tit span{margin-left:20px;}
+.model_box{width: 31.33%; float: left; margin-left: 1%; margin-right: 1%; background: #fff; border-radius: 10px;}
+.model_box_2{width: 48%; float: left; margin-left: 1%; margin-right: 1%; background: #fff; border-radius: 10px;}
+.model_tit{width: 100%; overflow: hidden; height: 50px; line-height: 50px; border-bottom:1px solid #000; box-sizing: border-box; margin-bottom: 20px;}
+.model_tit span{margin-left:20px;}
+.model_box_wrap{width:90%; margin:0 auto; margin-top:10px;}
+.model_graph{width:100%; overflow: hidden; border:1px solid #4C4C4E; border-radius: 10px;}
+.model_graph img{width: 100%;}
+.model_date{width: 100%; overflow: hidden; margin-top:20px; margin-bottom: 20px;}
+.model_date div{width: 33.33%; float: left; text-align: center; font-size: 12px;}
+.model_info{width: 100%; overflow: hidden;}
+.model_info_tit{width: 100%; overflow: hidden;}
+.model_info_tit div{width:150px; height: 30px; line-height: 30px; background: #28CDC7; color: #fff; border-radius: 10px 10px 0px 0px; float: left; text-align: center; font-size: 14px;}
+.model_info_text{width: 100%; overflow: hidden; height: 60px; line-height: 60px; border: 2px solid #28CDC7; box-sizing: border-box; font-size:14px; color: #28CDC7; border-radius: 0px 10px 10px 10px; margin-bottom:20px;}
+.model_info_text div{width: 33.33%; float: left; text-align: center;}
+.reloca_btn{border:0; float: right; width: 60px; height: 30px; line-height: 30px; background: #28CDC7; color: #fff; text-align: center; border-radius: 5px; margin-top:10px; margin-right: 20px;}
+.arrange_id{width: 100%; overflow: hidden; margin-bottom: 20px;}
+.arrange_id div{float: left; margin-right: 20px; text-align: center; height: 40px; line-height: 40px;}
+.arrange_id div input[type=text]{width:200px; float:left; margin-left:1%; margin-right: 1%; height: 40px; box-sizing: border-box; border:1px solid #aaa; color: #aaa; border-radius: 5px; text-align: center;}
+.arrange_box{width: 100%; overflow: hidden;}
+.arrbox1{width:46%; float: left; margin-left:2%; margin-right: 2%; border:3px solid #28CDC7; box-sizing: border-box; border-radius: 10px; color: #28CDC7; margin-bottom:20px;}
+.arrbox2{width:46%; float: left; margin-left:2%; margin-right: 2%; border:3px solid #FF6187; box-sizing: border-box; border-radius: 10px; color: #FF6187; margin-bottom:20px;}
+.arrbox1 .arrbox_tit{width: 100%; overflow: hidden; height: 40px; line-height: 40px; background: #28CDC7; text-align: center; font-size: 20px; color: #fff;}
+.arrbox2 .arrbox_tit{width: 100%; overflow: hidden; height: 40px; line-height: 40px; background: #FF6187; text-align: center; font-size: 20px; color: #fff;}
+.arrbox_info{width: 100%; overflow: hidden;}
+.arrbox_info h1{text-align: center; font-size: 40px; margin-top:20px; margin-bottom: 20px; font-weight: 400;}
+.acurracy_box{width: 100%; overflow: hidden; margin-bottom: 30px;}
+.acurr_wrap{width: 90%; margin:0 auto; height: 20px; line-height: 20px;}
+.arrbox1 .acurr_bar{width: 80%; height: 6px; border:1px solid #28CDC7; box-sizing: border-box; border-radius: 10px; float: left; overflow: hidden; margin-top:10px;}
+.arrbox1 .acurr_color{width: 70%; background: #28CDC7; height: 10px;}
+.arrbox2 .acurr_bar{width: 80%; height: 6px; border:1px solid #FF6187; box-sizing: border-box; border-radius: 10px; float: left; overflow: hidden; margin-top:10px;}
+.arrbox2 .acurr_color{width: 70%; background: #FF6187; height: 10px;}
+.acurr_num{width:15%; float: left; margin-left: 5%;}
+.model_box_1{width: 98%; margin-left: 1%; margin-right: 1%; overflow: hidden; background: #fff;}
+.set_btn_box{width: 100%; overflow: hidden;}
+.set_btn_wrap{width: 98%; margin:0 auto; margin-top:10px;}
+.user_add_btn, .user_del_btn{display: block; width:140px; height: 35px; line-height: 35px; background: #fff; color: #28CDC7; border:1px solid #28CDC7; box-sizing: border-box; margin-right: 5px; float: left; border-radius: 5px;}
+.save_btn{display: block; width:60px; height: 40px; line-height: 40px; background: #28CDC7; color: #fff; border:1px solid #28CDC7; box-sizing: border-box; margin-right: 5px; float: right; border-radius: 5px;}
+.tree_tit{width: 100%; height: 40px; line-height: 40px; border-bottom:1px solid #4C4C4E; margin:0 !important; padding-left: 10px;}
+.tree_ui{width: 90% !important; margin: 0 auto !important;}
+.i_btn{width:30px; height: 30px; line-height: 30px; border: 1px solid #28CDC7; color: #28CDC7; text-align: center; border-radius: 5px; background: #fff;}
+.info_btn{width:90px; height: 30px; line-height: 30px; border-radius: 5px; background: #fff; color: #28CDC7; border:1px solid #28CDC7; float: left; margin-right: 10px;}
+.auth_setting{width:120px; height: 30px; line-height: 30px; border-radius: 5px; background: #fff; color: #28CDC7; border:1px solid #28CDC7; float: left; margin-right: 10px; text-align: center;}
+.menu_auth_btn{width:90px; height: 30px; line-height: 30px; border-radius: 5px; background: #fff; color: #28CDC7; border:1px solid #28CDC7; float: left; margin-right: 10px;}
+.red_border{border:1px solid #FF6187; color: #FF6187;}

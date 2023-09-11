@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>분석결과</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!--    font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--    google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!--  jqGrid-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js" /></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js" /></script>
+    <link rel="stylesheet" type="text/css" href="js/jqgrid/css/ui.jqgrid.css" />
+    <script src="js/jqgrid/js/i18n/grid.locale-kr.js" type="text/javascript"></script>
+    <script src="js/jqgrid/js/minified/jquery.jqGrid.min.js" type="text/javascript"></script>
+    <!-- tree ui -->
+    <link rel="stylesheet" href="js/jstree/dist/themes/default/style.min.css" />
+    <script src="js/jstree/dist/jstree.min.js"></script>
+    <!--    datepicker-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script>
+        $(document).ready(function() {
+            var mydata = [
+                {rank:"1",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"2",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"3",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"4",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"5",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"6",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"7",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"8",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"9",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"10",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"11",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"12",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"13",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"14",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"15",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"16",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"17",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"18",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"19",keyword:"감사",emotion:"긍정",amount:"301"},
+                {rank:"20",keyword:"감사",emotion:"긍정",amount:"301"}
+            ];
+
+            $("#list10").jqGrid({
+                datatype: "local",
+                data: mydata,
+                colNames:['순위','단어', '긍부정', '건수'],
+                colModel:[
+                    {name:'rank', index:'rank', width:50 , align: "center"},
+                    {name:'keyword', index:'keyword', width:100 , align: "center"},
+                    {name:'emotion', index:'emotion', width:100, align: "center"},
+                    {name:'amount', index:'amount', width:80, align: "center"}
+                ],
+                autowidth: true,
+                rownumbers : false,
+                multiselect: false,
+                rowNum: 15,
+                sortname: 'id',
+                sortorder: 'asc',
+                height: 520,
+            });
+
+            $(window).on('resize.jqGrid', function() {
+                $("#list10").jqGrid('setGridWidth', $("#list10").parent().parent().parent().parent().parent().width());
+            })
+            $(".jarviswidget-fullscreen-btn").click(function(){
+                setTimeout(function() {
+                    $("#list10").jqGrid('setGridWidth', $("#list10").parent().parent().parent().parent().parent().width());
+                }, 100);
+            });
+        });
+    </script>
+
+    <script>
+        $(function(){
+            $("#datepicker, #datepicker2").datepicker();
+        });
+
+        // 상담유형선택 ui
+        $(function(){
+            $('.type_tit').click(function(){
+                $('.type_check').toggle();
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="aside">
+    <div class="aside_wrap">
+        <div class="logo"><img src="./img/common/kt-is-logo-c.png" alt="logo"></div>
+        <div class="menu">
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-chart-pie"></i> 대시보드</a></li>
+                <li class="on"><a href="#"><i class="fa-solid fa-chart-simple"></i> 분석 결과</a></li>
+                <li><a href="#"><i class="fa-solid fa-phone"></i> STT 결과</a></li>
+                <li><a href="#"><i class="fa-solid fa-magnifying-glass-chart"></i> 업무 관리</a></li>
+                <li><a href="#"><i class="fa-solid fa-gear"></i> 시스템 설정</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="main">
+    <div class="content">
+        <div class="con_wrap" style="overflow: visible;">
+            <div class="filter_box">
+                <div class="date_select">
+                    <input type="text" id="datepicker" placeholder="날짜 선택" readonly>
+                    <div>~</div>
+                    <input type="text" id="datepicker2" placeholder="날짜 선택" readonly>
+                </div>
+                <div class="type_select">
+                    <div class="type_tit">상담유형선택</div>
+                    <div class="type_check">
+                        <div class="step1">
+                            <ul>
+                                <li>
+                                    <input type="checkbox" name="" id="type1" checked><label for="type1" class="cb1"><span>대학병원</span></label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="" id="type2"><label for="type2" class="cb1"><span>진료안내</span></label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="" id="type3"><label for="type3" class="cb1"><span>인원</span></label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="" id="type4"><label for="type4" class="cb1"><span>병원이용안내</span></label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="step2">
+                            <ul>
+                                <li>
+                                    <input type="checkbox" name="" id="type5" checked><label for="type5" class="cb1"><span>복지 분야</span></label>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" name="" id="type6" ><label for="type6" class="cb1"><span>복지1</span></label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="" id="type7" ><label for="type7" class="cb1"><span>복지2</span></label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="" id="type8" ><label for="type8" class="cb1"><span>복지3</span></label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <button class="search_btn"><i class="fa-solid fa-magnifying-glass"></i> 조회</button>
+                <button class="export_btn"><i class="fa-regular fa-image"></i> Export</button>
+            </div>
+            <div class="account_box">
+                <div class="user_box">
+                    <div class="user_name">조진호 님</div>
+                    <div class="access_time">2023-07-03 16:25:37</div>
+                </div>
+                <div class="setting_box">
+                    <button class="setting_btn"><i class="fa-solid fa-gear"></i></button>
+                </div>
+                <div class="logout_box">
+                    <button class="logout_btn"><i class="fa-solid fa-right-from-bracket"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="con_wrap">
+            <div class="con_box_half">
+                <div class="box_1">
+                    <div class="box_wrap">
+                        <div class="box_tit">
+                            <h4>긍부정 추이</h4>
+                        </div>
+                        <img src="./img/contents/analy1.png" alt="">
+                    </div>
+                </div>
+                <div class="box_1">
+                    <div class="box_wrap">
+                        <div class="box_tit">
+                            <h4>성별 추이</h4>
+                        </div>
+                        <img src="./img/contents/analy3.png" alt="">
+                    </div>
+                </div>
+                <div class="box_1">
+                    <div class="box_wrap">
+                        <div class="box_tit">
+                            <h4>연령 추이</h4>
+                        </div>
+                        <img src="./img/contents/analy3.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="con_box_half">
+                <div class="box_1">
+                    <div class="box_wrap">
+                        <div class="box_tit">
+                            <h4>긍부정 통계</h4>
+                        </div>
+
+                        <div class="emoji_box">
+                            <div class="emoji_wrap">
+                                <div class="happy_emoji">
+                                    <div class="emoji_img"><img src="./img/contents/happy_emoji.png" alt=""></div>
+                                    <div class="emoji_date" style="color: #8684FF;">2022-01-01</div>
+                                    <p style="color: #8684FF;">긍정 비율이 가장 높았던 날</p>
+                                </div>
+                                <div class="angry_emoji">
+                                    <div class="emoji_img"><img src="./img/contents/angry_emoji.png" alt=""></div>
+                                    <div class="emoji_date" style="color:#FF6187;">2022-01-01</div>
+                                    <p style="color: #FF6187;">부정 비율이 가장 높았던 날</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box_1" style="height: 640px;">
+                    <div class="box_wrap emotion_rank">
+                        <div class="box_tit">
+                            <h4>긍부정 건수 순위</h4>
+                        </div>
+                        <table id="list10"></table>
+                        <div id="pager"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
